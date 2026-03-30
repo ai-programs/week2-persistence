@@ -1,0 +1,81 @@
+/* ================================================
+   TypeRacer — Custom Styles
+   ================================================
+   Tailwind handles layout and most styling.
+   This file covers things Tailwind can't do easily:
+   - Character-level coloring for the typing display
+   - Smooth transitions and animations
+   - CSS variables for easy re-theming
+   ================================================ */
+
+/* ========================
+   THEME VARIABLES
+   ========================
+   Change these to re-theme the whole game!
+   Students can tweak these to make it their own. */
+:root {
+    --color-correct: #34d399;
+    --color-incorrect: #f87171;
+    --color-current: #818cf8;
+    --color-untyped: #6b7280;
+}
+
+/* ========================
+   CHARACTER HIGHLIGHTING
+   ========================
+   Each character in the sentence gets one of these
+   classes as the player types. This is how we show
+   green (correct), red (incorrect), and the cursor. */
+
+.char {
+    transition: color 0.1s ease, border-color 0.15s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.char.correct {
+    color: var(--color-correct);
+}
+
+.char.incorrect {
+    color: var(--color-incorrect);
+    border-bottom-color: var(--color-incorrect);
+}
+
+.char.current {
+    color: var(--color-current);
+    border-bottom-color: var(--color-current);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.char.untyped {
+    color: var(--color-untyped);
+}
+
+/* ========================
+   CURSOR PULSE ANIMATION
+   ========================
+   Makes the current character softly blink
+   so the player knows where they are. */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ========================
+   SCORE ENTRY ANIMATION
+   ========================
+   New scores slide in from the left. */
+.score-entry {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
