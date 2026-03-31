@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "**/.*": true,
+    "week2-planning.md": true,
+    "publish-guide.md": true
+  },
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  }
+}
